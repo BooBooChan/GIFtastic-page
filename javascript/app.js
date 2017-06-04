@@ -1,7 +1,8 @@
 //REMEMBER TO CONSOLE.LOG EVERYTHING! LEAVE NO STONE UNTURNED!
 
 //Step 1: Create AJAX code which will receive API data from server and send queries to server.
- var queryURL = "";//insert url here
+ //queryURL = the host site + the query parameters + the API key
+ var queryURL = "api.giphy.com" + ___ + "___";//insert url here
  var apiPublicKey = "dc6zaTOxFJmzC";
  var topics = [{
  	topic:"violin"
@@ -81,11 +82,15 @@
 
 	for(var i = 0; i < topics.length; i++){
 	$(<button>).append(topics[i]);
-	$("button").on("click", function{
-	(topics[i].topic).html()
-	};
-	//Here's the JSON
 	
+	//create space for actual gif to be displayed.
+	var newGif = $("<img class = gif>");
+	//create button to summon newGif variable
+	var summon = $("<button>");
+	summon.append(topics[i].topic);
+	$("button").on("click", function{
+	(topics[i].topic).html(topics[i].q + topics[i].rating + topics[i].limit)
+	};
 };
 
 
