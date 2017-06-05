@@ -14,7 +14,7 @@
       method: 'GET'
 }).done(function(response) {
 //Input your JSON and API parameters inside this entire object.
-
+	console.log(response);	
 	for(var i = 0; i < topics.length; i++){
 	$("<button>").append(topics[i]);
 	
@@ -33,12 +33,14 @@
 		var redLightGreenLight = $("newGif").attr("data-state");
 		redLightGreenLight = "still";
 		if(redLightGreenLight === "still"){
-			$("redLightGreenLight").on("click", function(){
+			var move = $("redLightGreenLight").on("click", function(){
 				redLightGreenLight = "animate"
+				console.log($("move"));
 				});//end "on "click" event
 			};/*end if() conditional*/else{
-				$("redLightGreenLight").on("click", function(){
-				redLightGreenLight = "still"
+				var stop = $("redLightGreenLight").on("click", function(){
+				redLightGreenLight = "still";
+				console.log($("stop"));
 				});//end "on click" event
 			};//end else conditional
 		});//end "button" click event function
@@ -53,7 +55,7 @@
 	$("mpaa").html();
 	});//end userSummoner click event function
 	//Now make sure that the Gifs start paused, and resume/pause according to user's click
-	 console.log(response);	
+	 
 });//end function(response)
 
 
