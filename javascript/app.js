@@ -2,78 +2,13 @@
 
 //Step 1: Create AJAX code which will receive API data from server and send queries to server.
  //queryURL = the host site + the query parameters + the API key
- var queryURL = "api.giphy.com" + ___ + "___";//insert url here
+ var keyWord = "fingernail" //This is just to help test your code with an example.
  var apiPublicKey = "dc6zaTOxFJmzC";
- var topics = [{
- 	topic:"violin"
- 	id:#violin
- 	q:"violin"
- 	rating:
- 	limit:10
- 	}, 
- 	{
- 	topic:"sneeze"
- 	id:#sneeze
- 	q:"sneeze"
- 	rating:
- 	limit:10
- 	}, 
- 	{
- 	topic:"hummingbird"
- 	id:#hummingbird
- 	q:"hummingbird"
- 	rating:
- 	limit:10
- 	}, 
-	{
-	topic:"trick-or-treat"
-	id:#trick-or-treat
-	q:"trick+or+treat"
- 	rating:
- 	limit:10
-	}, 
-	{
-	topic:"yo-yo"
-	id:#yo-yo
-	q:"yoyo"
- 	rating:
- 	limit:10
-	}, 
-	{
-	topic:"breakdance"
-	id:#breakdance
-	q:"breakdance"
- 	rating:
- 	limit:10
-	}, 
-	{
-	topic:"magical-girl"
-	id:#magical-girl
-	q:"magical+girl"
- 	rating:
- 	limit:10
-	}, 
-	{
-	topic:"captain-planet"
-	id:#captain-planet
-	q:"captain+planet"
- 	rating:
- 	limit:10
-	}, 
-	{
-	topic:"firework"
-	id:#firework
-	q:"firework"
- 	rating:
- 	limit:10
-	}, 
-	{
-	topic:"shadow-puppet"
-	id:#shadow-puppet
-	q:"shadow+puppet"
- 	rating:
- 	limit:10
-	}];
+ //Put down the url. You will need to change the http thingymajig to an https thingymajig.
+ var queryURL = "api.giphy.com/v1/gifs/search?q=" + keyWord + "&api_key=" + apiPublicKey;
+ 
+ //http:api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC   
+ var topics = ["violin", "sneeze", "hummingbird", "trick-or-treat", "yo-yo", "breakdance", "magical-girl", "captain-planet", "firework", "shadow-puppet"];
  $.ajax({
       url: queryURL,
       method: 'GET'
@@ -81,17 +16,45 @@
 //Input your JSON and API parameters inside this entire object.
 
 	for(var i = 0; i < topics.length; i++){
-	$(<button>).append(topics[i]);
+	$("<button>").append(topics[i]);
 	
 	//create space for actual gif to be displayed.
-	var newGif = $("<img class = gif>");
+	var newGif = $("<img>").addClass("gif");
 	//create button to summon newGif variable
 	var summon = $("<button>");
-	summon.append(topics[i].topic);
-	$("button").on("click", function{
-	(topics[i].topic).html(topics[i].q + topics[i].rating + topics[i].limit)
-	};
-};
+	var buttonName = $("summon").append(topics[i]);
+	$("button").on("click", function(){
+		var tenOfEach = response.limit //response.limit pulls query filter "limit to 10 results" from server
+		tenOfEach = 10;
+		var mpaa = response.rating//response.rating pulls query filter "limit to following rating" from server.
+		$("mpaa") = "g";
+		$("buttonName").html(topics[i]);
+		$("button").after(newGif);
+		var redLightGreenLight = $("newGif").attr("data-state");
+		redLightGreenLight = "still";
+		if(redLightGreenLight === "still"){
+			$("redLightGreenLight").on("click", function(){
+				redLightGreenLight = "animate"
+				});//end "on "click" event
+			};/*end if() conditional*/else{
+				$("redLightGreenLight").on("click", function(){
+				redLightGreenLight = "still"
+				});//end "on click" event
+			};//end else conditional
+		});//end "button" click event function
+	};//end for() loop
+	//Now you need to create a space where user can type and summon more buttons.
+	var userSummoner = $(".summon");
+	userSummoner.on("click", function(){
+	$("newGif").html();
+	$("tenOfEach") = 10;
+	$("tenOfEach").html();
+	$("mpaa") = "g";
+	$("mpaa").html();
+	});//end userSummoner click event function
+	//Now make sure that the Gifs start paused, and resume/pause according to user's click
+	 console.log(response);	
+});//end function(response)
 
 
 
@@ -110,8 +73,8 @@
 
 
 
-      console.log(response);
-    });
+     
+  
 
     //Public API key: dc6zaTOxFJmzC
 
