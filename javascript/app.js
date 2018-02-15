@@ -3,10 +3,11 @@
 //Step 1: Create AJAX code which will receive API data from server and send queries to server.
  //queryURL = the host site + the query parameters + the API key
  var keyWord = "fingernail" //This is just to help test your code with an example.
- var apiPublicKey = "dc6zaTOxFJmzC";
+ var apiPublicKey = "K72kf1Fkt04ZbYn25WV7TPV0MYhUiGLd";
  //Put down the url. You will need to change the http thingymajig to an https thingymajig.
  var queryURL = "api.giphy.com/v1/gifs/search?q=" + keyWord + "&api_key=" + apiPublicKey;
  
+
  //http:api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC   
  var topics = ["violin", "sneeze", "hummingbird", "trick-or-treat", "yo-yo", "breakdance", "magical-girl", "captain-planet", "firework", "shadow-puppet"];
  $.ajax({
@@ -16,28 +17,28 @@
 //Input your JSON and API parameters inside this entire object.
 	console.log(response);	
 	for(var i = 0; i < topics.length; i++){
-	$("<button>").append(topics[i]);
+	$("<button>").append(topics[i]);//How do we know this will create 10 buttons and not append 10 topics into a single created button?
 	
 	//create space for actual gif to be displayed.
 	var newGif = $("<img>").addClass("gif");
 	//create button to summon newGif variable
 	var summon = $("<button>");
 	var buttonName = $("summon").append(topics[i]);
-	$("button").on("click", function(){
-		var tenOfEach = response.limit //response.limit pulls query filter "limit to 10 results" from server
-		tenOfEach = 10;
-		var mpaa = response.rating//response.rating pulls query filter "limit to following rating" from server.
-		$("mpaa") = "g";
-		$("buttonName").html(topics[i]);
-		$("button").after(newGif);
-		var redLightGreenLight = $("newGif").attr("data-state");
-		redLightGreenLight = "still";
-		if(redLightGreenLight === "still"){
-			var move = $("redLightGreenLight").on("click", function(){
-				redLightGreenLight = "animate"
-				console.log($("move"));
+		$("button").on("click", function(){
+			var tenOfEach = response.limit //response.limit pulls query filter "limit to 10 results" from server
+			tenOfEach = 10;
+			var mpaa = response.rating;//response.rating pulls query filter "limit to following rating" from server.
+			$("mpaa") = "g";
+			$("buttonName").html(topics[i]);
+			$("button").after(newGif);
+			var redLightGreenLight = $("newGif").attr("data-state");
+			redLightGreenLight = "still";
+			if(redLightGreenLight === "still"){
+				var move = $("redLightGreenLight").on("click", function(){
+					redLightGreenLight = "animate"
+					console.log($("move"));
 				});//end "on "click" event
-			};/*end if() conditional*/else{
+			}/*end if() conditional*/else{
 				var stop = $("redLightGreenLight").on("click", function(){
 				redLightGreenLight = "still";
 				console.log($("stop"));
@@ -48,11 +49,11 @@
 	//Now you need to create a space where user can type and summon more buttons.
 	var userSummoner = $(".summon");
 	userSummoner.on("click", function(){
-	$("newGif").html();
-	$("tenOfEach") = 10;
-	$("tenOfEach").html();
-	$("mpaa") = "g";
-	$("mpaa").html();
+		$("newGif").html();
+		$("tenOfEach") = 10;
+		$("tenOfEach").html();
+		$("mpaa") = "g";
+		$("mpaa").html();
 	});//end userSummoner click event function
 	//Now make sure that the Gifs start paused, and resume/pause according to user's click
 	 
